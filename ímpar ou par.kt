@@ -12,6 +12,7 @@ fun main(){
     var raiz = sqrt(num)
     var quad = num.pow(2)
 
+
     
     if ( num % 2 == 0.0 ) {
 
