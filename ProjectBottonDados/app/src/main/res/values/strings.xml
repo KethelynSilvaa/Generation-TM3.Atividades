@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProjectBottonDados</string>
+    <string name="rolardado">Rolar Dado</string>
+    <string name="dado12">Dado12</string>
+    <string name="dado20">dado20</string>
+    <string name="todo">TODO</string>
+    <string name="jogue_o_dado">JOGUE O DADO</string>
+</resources>
