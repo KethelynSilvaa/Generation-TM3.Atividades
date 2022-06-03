@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FirstLayout</string>
+    <string name="logo">BRASIL</string>
+    <string name="usuario">Usuário</string>
+    <string name="data">DATA</string>
+    <string name="descricao">DESCRIÇÃO</string>
+    <string name="responsavel">RESPONSÁVEL</string>
+    <string name="em_andamento">EM ANDAMENTO</string>
+    <string name="nome">NOME</string>
+    <string name="generation">Generation</string>
+    <string name="button">Button</string>
+</resources>
