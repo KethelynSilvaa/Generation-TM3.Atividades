@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ViewModel e LiveData</string>
+    <string name="clique_no_botao">Clique no Botão</string>
+    <string name="buttonclique">Button</string>
+    <string name="quatidClique">0</string>
+</resources>
