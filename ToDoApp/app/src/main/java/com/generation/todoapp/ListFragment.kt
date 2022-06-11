@@ -24,38 +24,16 @@ class  ListFragment : Fragment(){
 
 
 
-          val listTarefa = listOf(
-            Tarefa("Lavar Roupa",
-            "Lavar roupas Pretas",
-            "Kethelyn",
-            "13-06-2022",
-            false,
-            "Dia a Dia"),
-
-            Tarefa("Cinema",
-                "Assistir Filme Ação",
-                "Kethelyn",
-                "13-06-2022",
-                false,
-                "Lazer"),
-
-            Tarefa("Treino",
-                "Box",
-                "Kethelyn",
-                "13-06-2022",
-                false,
-                "Atividade Fisica"),
 
 
-        )
+
+
 
         //Config do RecyclerView
         val adapter = TarefaAdapter()
         binding.recyclerTarefa.layoutManager= LinearLayoutManager(context)
         binding.recyclerTarefa.adapter=adapter
         binding.recyclerTarefa.setHasFixedSize(true)
-
-        adapter.setlist(listTarefa)
 
         binding.floatingAdd.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_formFragment)

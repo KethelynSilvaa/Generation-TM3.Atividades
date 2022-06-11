@@ -1,0 +1,9 @@
+package com.generation.todoapp.model
+
+class Categoria (
+    var id : Long,
+    var  descricao: String,
+    var tarefas : List<Tarefa>
+        ){
+
+}
