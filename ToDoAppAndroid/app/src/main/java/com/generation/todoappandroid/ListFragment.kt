@@ -9,14 +9,16 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.generation.todoappandroid.adapter.TarefaAdapter
+import com.generation.todoappandroid.adapter.TaskClickListner
 import com.generation.todoappandroid.databinding.FragmentListBinding
 import com.generation.todoappandroid.model.Tarefa
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), TaskClickListner {
 
     private lateinit var binding: FragmentListBinding
     private val mainViewModel: MainViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,12 +33,13 @@ class ListFragment : Fragment() {
 
 
         //conf do RecyclerView na ListFragment- fará com que os Cards da lista fique em formato de lista
-        val adapter = TarefaAdapter()
+        val adapter = TarefaAdapter(this,mainViewModel)
         binding.recyclerTarefa.layoutManager = LinearLayoutManager(context)
         binding.recyclerTarefa.adapter = adapter
         binding.recyclerTarefa.setHasFixedSize(true)
 
         binding.floatingAdd.setOnClickListener{
+            mainViewModel.tarefaSelecionada = null
             findNavController().navigate(R.id.action_listFragment2_to_formFragment2)
         }
         mainViewModel.myTarefaResponse.observe(viewLifecycleOwner){
@@ -46,6 +49,12 @@ class ListFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+
+    override fun onTaskClickListener(tarefa: Tarefa) {
+        mainViewModel.tarefaSelecionada= tarefa
+        findNavController().navigate(R.id.action_listFragment2_to_formFragment2)
     }
 
 }

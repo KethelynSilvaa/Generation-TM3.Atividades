@@ -3,10 +3,14 @@ package com.generation.todoappandroid.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.generation.todoappandroid.MainViewModel
 import com.generation.todoappandroid.databinding.CardLayoutBinding
 import com.generation.todoappandroid.model.Tarefa
 
-class TarefaAdapter: RecyclerView.Adapter<TarefaAdapter.TarefaViewHolder>() {
+class TarefaAdapter(
+    val taskClickListner: TaskClickListner,
+    val mainViewModel: MainViewModel
+): RecyclerView.Adapter<TarefaAdapter.TarefaViewHolder>() {
 
     private var listTarefa = emptyList<Tarefa>()
 
@@ -26,13 +30,27 @@ class TarefaAdapter: RecyclerView.Adapter<TarefaAdapter.TarefaViewHolder>() {
         holder.binding.textData.text= tarefa.data
         holder.binding.switchEmAndameto.isChecked= tarefa.status
         holder.binding.textCategoria.text= tarefa.categoria.descricao
+
+        holder.itemView.setOnClickListener {
+            taskClickListner.onTaskClickListener(tarefa)
+        }
+
+        holder.binding.switchEmAndameto
+            .setOnCheckedChangeListener { buttonView, ativo ->
+                tarefa.status = ativo
+                mainViewModel.updateTarefa(tarefa)
+            }
+
+
     }
     override fun getItemCount(): Int {
         return listTarefa.size
     }
     fun setlist(list:List<Tarefa>){
-        listTarefa = list
+        listTarefa = list.sortedByDescending { it.id }
         notifyDataSetChanged()
     }
+
+
 
     }
