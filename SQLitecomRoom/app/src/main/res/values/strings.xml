@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SQLitecomRoom</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nome">Nome</string>
+    <string name="salvar">Salvar</string>
+    <string name="data">Data</string>
+    <string name="idade" />
+    <string name="_1">1</string>
+</resources>
